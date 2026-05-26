@@ -91,7 +91,7 @@ export default function AboutPage() {
         <section className={styles.story}>
           <div className={styles.storyHeader}>
             <p className={styles.eyebrow}>회사 소개</p>
-            <h1>가스펠플러스(GSPLPLUS)는 어떤 회사인가요?</h1>
+            <h1>가스펠플러스는 어떤 회사인가요?</h1>
           </div>
           <div className={styles.storyBody}>
             <p className={styles.storyLead}>
