@@ -1,7 +1,5 @@
-// 2026-05-22 수정: CTA 섹션 추가, 메타데이터 추가
 import type { Metadata } from "next";
 import CTASection from "@/components/sections/CTASection";
-import sharedStyles from "../detail-page.module.css";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -9,6 +7,32 @@ export const metadata: Metadata = {
   description:
     "가스펠플러스(GSPLPLUS)는 2015년 창립 이래 10년 이상의 임베디드 전문 기업입니다. 기획과 협력, 개발과 구현, 성장 동반의 가치로 고객과 함께 성장합니다.",
 };
+
+const principles = ["사람을 이롭게", "자연을 아름답게", "사회를 따뜻하게"];
+
+const pillars = [
+  {
+    index: "01",
+    title: "기획과 협력",
+    description:
+      "고객의 요구사항과 문제점을 분석해 최적의 솔루션을 제안합니다. 전장설계, 회로설계, 보드개발 범위를 함께 검토하며 방향을 고민하고 기술을 공유하는 협력 파트너를 지향합니다.",
+    color: "#3b82f6",
+  },
+  {
+    index: "02",
+    title: "개발과 구현",
+    description:
+      "축적된 노하우를 바탕으로 임베디드 기반의 다양한 솔루션을 구현합니다. 펌웨어, PC, Android, iOS 등 여러 환경을 아우르는 통합 관리와 제어 경험을 실제 장비 개발까지 연결합니다.",
+    color: "#8b5cf6",
+  },
+  {
+    index: "03",
+    title: "성장 동반",
+    description:
+      "위탁 연구개발, 자사 제품, 센서 모듈 개발과 생산 및 납품까지 이어지는 원스톱 서비스를 제공합니다. 점검장비와 시뮬레이터 등 현장 적용 결과물로 고객의 성장 과정에 기여하는 것이 목표입니다.",
+    color: "#10b981",
+  },
+];
 
 const history = [
   {
@@ -86,80 +110,76 @@ const history = [
 
 export default function AboutPage() {
   return (
-    <div className={sharedStyles.page}>
-      <main className={sharedStyles.main}>
-        <section className={styles.story}>
-          <div className={styles.storyHeader}>
-            <p className={styles.eyebrow}>회사 소개</p>
-            <h1>가스펠플러스는 어떤 회사인가요?</h1>
-          </div>
-          <div className={styles.storyBody}>
-            <p className={styles.storyLead}>
+    <div className={styles.page}>
+      <main className={styles.main}>
+        {/* 히어로 섹션 */}
+        <section className={styles.hero}>
+          <div className={styles.heroContent}>
+            <p className={styles.eyebrow}>About Us</p>
+            <h1 className={styles.heroTitle}>회사 소개</h1>
+            <p className={styles.heroLead}>
               가스펠플러스(GSPLPLUS)는 임베디드 하드웨어와 소프트웨어를 함께
-              다루는 엔지니어링 기업입니다. <br /> gspls.kr 공식 웹사이트를 통해
-              전장설계, 회로설계, 보드개발, 시스템 통합 등 주요 기술 분야를
-              소개하고 있습니다. 2015년 창업 이후 축적한 경험과 기술을 바탕으로
-              다양한 산업의 요구사항과 기술 문제를 해결하며, 고객의 가치를
-              키우는 기획과 협력, 개발과 구현, 성장 동반의 흐름을 만들어
-              왔습니다.
+              다루는 엔지니어링 기업입니다.
+              <br />
+              2015년 창업 이후 축적한 경험과 기술을 바탕으로 다양한 산업의
+              요구사항과 기술 문제를 해결합니다.
             </p>
             <div className={styles.principles} aria-label="기업 이념">
-              <span>사람을 이롭게</span>
-              <span>자연을 아름답게</span>
-              <span>사회를 따뜻하게</span>
+              {principles.map((p) => (
+                <span key={p}>{p}</span>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className={styles.pillars} aria-label="핵심 가치">
-          <article className={`${styles.pillar} ${styles.thinking}`}>
-            <span className={styles.pillarIndex}>01</span>
-            <div className={styles.pillarContent}>
-              <h2>기획과 협력</h2>
-              <p>
-                고객의 요구사항과 문제점을 분석해 최적의 솔루션을 제안합니다.
-                전장설계, 회로설계, 보드개발 범위를 함께 검토하며 방향을
-                고민하고 기술을 공유하는 협력 파트너를 지향합니다.
-              </p>
-            </div>
-          </article>
-          <article className={`${styles.pillar} ${styles.development}`}>
-            <span className={styles.pillarIndex}>02</span>
-            <div className={styles.pillarContent}>
-              <h2>개발과 구현</h2>
-              <p>
-                축적된 노하우를 바탕으로 임베디드 기반의 다양한 솔루션을
-                구현합니다. 펌웨어, PC, Android, iOS 등 여러 환경을 아우르는
-                통합 관리와 제어 경험을 실제 장비 개발까지 연결합니다.
-              </p>
-            </div>
-          </article>
-          <article className={`${styles.pillar} ${styles.growth}`}>
-            <span className={styles.pillarIndex}>03</span>
-            <div className={styles.pillarContent}>
-              <h2>성장 동반</h2>
-              <p>
-                위탁 연구개발, 자사 제품, 센서 모듈 개발과 생산 및 납품까지
-                이어지는 원스톱 서비스를 제공합니다. 점검장비와 시뮬레이터 등
-                현장 적용 결과물로 고객의 성장 과정에 기여하는 것이 목표입니다.
-              </p>
-            </div>
-          </article>
+        {/* 핵심 가치 섹션 */}
+        <section className={styles.pillarsSection} aria-labelledby="pillars-title">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Core Values</p>
+            <h2 id="pillars-title">우리의 핵심 가치</h2>
+            <p className={styles.sectionLead}>
+              기획과 협력, 개발과 구현, 성장 동반의 흐름으로
+              고객과 함께 가치를 만들어 갑니다.
+            </p>
+          </div>
+
+          <div className={styles.pillarsGrid}>
+            {pillars.map((pillar, index) => (
+              <article
+                key={pillar.index}
+                className={styles.pillarCard}
+                style={
+                  {
+                    "--accent-color": pillar.color,
+                    "--delay": `${index * 0.1}s`,
+                  } as React.CSSProperties
+                }
+              >
+                <span className={styles.pillarIndex}>{pillar.index}</span>
+                <h3 className={styles.pillarTitle}>{pillar.title}</h3>
+                <p className={styles.pillarDesc}>{pillar.description}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
-        <section className={styles.history} aria-labelledby="history-title">
-          <div className={styles.historyHeader}>
-            <p className={styles.historyEyebrow}>연혁</p>
+        {/* 연혁 섹션 */}
+        <section className={styles.historySection} aria-labelledby="history-title">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>History</p>
             <h2 id="history-title">기업 연혁</h2>
-            <p>
-              2015년 설립 이후 진행해 온 주요 개발 이력입니다. 이미지가 아닌
-              텍스트 타임라인으로 정리해 이후 수정과 확장이 쉽도록 구성했습니다.
+            <p className={styles.sectionLead}>
+              2015년 설립 이후 진행해 온 주요 개발 이력입니다.
             </p>
           </div>
 
           <div className={styles.timeline}>
-            {history.map((group) => (
-              <article className={styles.timelineGroup} key={group.year}>
+            {history.map((group, index) => (
+              <article
+                className={styles.timelineGroup}
+                key={group.year}
+                style={{ "--delay": `${index * 0.05}s` } as React.CSSProperties}
+              >
                 <div className={styles.timelineMarker} aria-hidden="true">
                   <span className={styles.timelineDot} />
                 </div>
@@ -178,6 +198,28 @@ export default function AboutPage() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        {/* 통계 섹션 */}
+        <section className={styles.statsSection}>
+          <div className={styles.statsInner}>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>2015</span>
+              <span className={styles.statLabel}>창립년도</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>10+</span>
+              <span className={styles.statLabel}>년 경력</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>100+</span>
+              <span className={styles.statLabel}>완료 프로젝트</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>3</span>
+              <span className={styles.statLabel}>핵심 가치</span>
+            </div>
           </div>
         </section>
 

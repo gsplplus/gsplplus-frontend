@@ -1,202 +1,216 @@
+.page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 .main {
   display: flex;
-  width: 100%;
-  max-width: 1080px;
   flex-direction: column;
-  gap: 36px;
-  margin: 0 auto;
-  padding: 0 24px;
 }
 
+/* ===== 히어로 섹션 ===== */
 .hero {
-  overflow: hidden;
-  border: 1px solid #d7dfeb;
-  border-radius: 28px;
-  background: #ffffff;
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  padding: 120px 24px 60px;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+  text-align: center;
 }
 
-.heroHeader {
-  padding: 28px 32px;
-  background: linear-gradient(135deg, #F57C00 0%, #FF9800 100%);
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .eyebrow {
-  margin-bottom: 12px;
-  font-size: 14px;
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #F57C00 0%, #FF5722 100%);
+  border-radius: 999px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.heroHeader h1 {
-  font-size: clamp(34px, 5vw, 60px);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
   color: #ffffff;
+  margin-bottom: 20px;
 }
 
-.heroBody {
-  display: grid;
-  gap: 22px;
-  padding: 32px;
-  background: linear-gradient(180deg, #fff8ef 0%, #ffffff 100%);
+.heroTitle {
+  font-size: clamp(40px, 6vw, 60px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin-bottom: 20px;
 }
 
 .heroLead {
-  max-width: 48ch;
-  font-size: 19px;
-  font-weight: 600;
+  font-size: 18px;
   line-height: 1.8;
-  color: #334155;
+  color: #64748b;
 }
 
-.heroChips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.heroChips span {
-  padding: 10px 14px;
-  border: 1px solid #efcf9e;
-  border-radius: 999px;
-  background: #fff7ea;
-  font-size: 14px;
-  font-weight: 700;
-  color: #a55d00;
-}
-
-.info,
-.mapSection {
-  display: grid;
-  gap: 20px;
-}
-
+/* ===== 공통 섹션 헤더 ===== */
 .sectionHeader {
-  display: grid;
-  gap: 10px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
 }
 
 .sectionEyebrow {
+  display: inline-block;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #F57C00;
+  margin-bottom: 12px;
 }
 
 .sectionHeader h2 {
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1.02;
-  letter-spacing: -0.05em;
-  color: #102033;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.sectionLead {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #64748b;
+}
+
+/* ===== 방문 정보 섹션 ===== */
+.infoSection {
+  padding: 80px 24px;
+  background: #f8fafc;
 }
 
 .infoGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.infoCard,
-.mapCard {
-  border: 1px solid #e0e6ef;
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .infoCard {
-  display: grid;
-  gap: 12px;
-  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  border-left: 4px solid var(--accent-color, #F57C00);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: fadeInUp 0.6s ease-out backwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.infoCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color, #c97707);
 }
 
 .cardEyebrow {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #F57C00;
+  color: var(--accent-color, #F57C00);
+  margin-bottom: 8px;
 }
 
-.infoCard h3,
-.mapCopy h3 {
-  font-size: 28px;
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-  color: #102033;
+.infoTitle {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0f172a;
+  margin-bottom: 12px;
 }
 
-.infoCard p,
-.mapCopy p {
-  font-size: 17px;
-  line-height: 1.75;
-  color: #425466;
+.infoDesc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+/* ===== 지도 섹션 ===== */
+.mapSection {
+  padding: 80px 24px;
+  background: #ffffff;
 }
 
 .mapCard {
+  max-width: 1200px;
+  margin: 0 auto;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.mapCopy {
-  display: grid;
-  align-content: center;
-  gap: 16px;
-  padding: 32px;
-  background: linear-gradient(180deg, #fffaf3 0%, #ffffff 100%);
+.mapCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
 }
 
 .mapBox {
-  min-height: 420px;
-  border-left: 1px solid #e0e6ef;
+  width: 100%;
+  min-height: 480px;
 }
 
 .mapFrame {
   display: block;
   width: 100%;
-  min-height: 420px;
+  min-height: 480px;
   border: 0;
 }
 
+/* ===== 애니메이션 ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 1024px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+}
+
 @media (max-width: 768px) {
-  .main {
-    gap: 32px;
+  .hero {
+    padding: 100px 20px 40px;
   }
 
-  .heroHeader,
-  .heroBody,
-  .infoCard,
-  .mapCopy {
+  .infoSection,
+  .mapSection {
+    padding: 60px 20px;
+  }
+
+  .infoCard {
     padding: 24px;
   }
 
-  .heroLead,
-  .infoCard p,
-  .mapCopy p {
-    font-size: 16px;
+  .infoTitle {
+    font-size: 20px;
   }
 
-  .infoGrid,
-  .mapCard {
-    grid-template-columns: 1fr;
-  }
-
-  .infoCard,
-  .mapCard {
-    border-radius: 20px;
-  }
-
-  .mapBox {
-    border-left: 0;
-    border-top: 1px solid #e0e6ef;
-    min-height: 360px;
-  }
-
+  .mapBox,
   .mapFrame {
     min-height: 360px;
   }

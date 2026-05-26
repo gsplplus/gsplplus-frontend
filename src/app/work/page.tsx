@@ -1,7 +1,5 @@
-// 2026-05-22 수정: CTA 섹션 추가, 메타데이터 추가
 import type { Metadata } from "next";
 import CTASection from "@/components/sections/CTASection";
-import sharedStyles from "../detail-page.module.css";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -23,6 +21,7 @@ const coreBusiness = [
       "Bluetooth / Wi-Fi 통신용 하드웨어·소프트웨어 개발",
       "시뮬레이터 입출력 시스템 및 패널 개발",
     ],
+    color: "#3b82f6",
   },
   {
     key: "software",
@@ -36,6 +35,7 @@ const coreBusiness = [
       "PC·모바일 기반 앱 개발",
       "제어 및 관제 소프트웨어 구현",
     ],
+    color: "#8b5cf6",
   },
   {
     key: "si",
@@ -48,6 +48,7 @@ const coreBusiness = [
       "시스템 SI 개발 및 통합 솔루션 구현",
       "웹 기반 프로그램 솔루션 제공",
     ],
+    color: "#10b981",
   },
   {
     key: "automotive",
@@ -59,6 +60,7 @@ const coreBusiness = [
       "HR WSS 기반 센서 시스템 개발",
       "지능형 베어링 파형 센서 모듈 개발",
     ],
+    color: "#ef4444",
   },
 ];
 
@@ -83,70 +85,48 @@ const products = [
 
 export default function WorkPage() {
   return (
-    <div className={sharedStyles.page}>
+    <div className={styles.page}>
       <main className={styles.main}>
+        {/* 히어로 섹션 */}
         <section className={styles.hero}>
-          <div className={styles.heroHeader}>
-            <p className={styles.eyebrow}>하는 일</p>
-            <h1>주요 사업 영역</h1>
-          </div>
-
-          <div className={styles.heroBody}>
-            <div className={styles.heroCopy}>
-              <p className={styles.heroLead}>
-                GSPLPLUS는 임베디드 시스템을 기반으로 하드웨어, 소프트웨어,
-                시스템을 개발하고 생산 및 납품까지 이어지는 원스톱 서비스를
-                제공합니다.
-              </p>
-              <div className={styles.heroHighlights} aria-label="핵심 흐름">
-                <span>하드웨어</span>
-                <span>소프트웨어</span>
-                <span>시스템 통합</span>
-                <span>생산</span>
-              </div>
-            </div>
-
-            <div className={styles.heroVisual} aria-hidden="true">
-              <div className={`${styles.visualNode} ${styles.visualTopLeft}`}>
-                <strong>임베디드</strong>
-                <span>플랫폼 · BT</span>
-              </div>
-              <div className={`${styles.visualNode} ${styles.visualTopRight}`}>
-                <strong>임베디드</strong>
-                <span>소프트웨어 · 모바일</span>
-              </div>
-              <div className={`${styles.visualNode} ${styles.visualBottomLeft}`}>
-                <strong>시스템</strong>
-                <span>통합</span>
-              </div>
-              <div className={`${styles.visualNode} ${styles.visualBottomRight}`}>
-                <strong>자동차</strong>
-                <span>센서</span>
-              </div>
-              <div className={styles.visualCenter}>
-                <div className={styles.visualRing}>
-                  <span>핵심 사업</span>
-                </div>
-              </div>
-            </div>
+          <div className={styles.heroContent}>
+            <p className={styles.eyebrow}>Services</p>
+            <h1 className={styles.heroTitle}>주요 사업 영역</h1>
+            <p className={styles.heroLead}>
+              GSPLPLUS는 임베디드 시스템을 기반으로 하드웨어, 소프트웨어,
+              <br />
+              시스템을 개발하고 생산 및 납품까지 이어지는 원스톱 서비스를 제공합니다.
+            </p>
           </div>
         </section>
 
-        <section className={styles.core} aria-labelledby="core-business-title">
+        {/* 핵심 사업 카드 그리드 */}
+        <section className={styles.coreSection} aria-labelledby="core-business-title">
           <div className={styles.sectionHeader}>
-            <p className={styles.sectionEyebrow}>핵심 사업</p>
-            <h2 id="core-business-title">사업 역량</h2>
+            <p className={styles.sectionEyebrow}>Core Business</p>
+            <h2 id="core-business-title">핵심 사업 역량</h2>
+            <p className={styles.sectionLead}>
+              하드웨어부터 소프트웨어, 시스템 통합까지 4가지 핵심 분야에서
+              전문 역량을 제공합니다.
+            </p>
           </div>
 
           <div className={styles.coreGrid}>
-            {coreBusiness.map((area) => (
-              <article className={styles.coreCard} key={area.title}>
+            {coreBusiness.map((area, index) => (
+              <article
+                key={area.key}
+                className={styles.coreCard}
+                style={
+                  {
+                    "--accent-color": area.color,
+                    "--delay": `${index * 0.1}s`,
+                  } as React.CSSProperties
+                }
+              >
                 <div className={styles.coreCardHeader}>
-                  <span className={`${styles.coreBadge} ${styles[`${area.key}Badge`]}`}>
-                    {area.badge}
-                  </span>
-                  <h3>{area.title}</h3>
+                  <span className={styles.coreBadge}>{area.badge}</span>
                 </div>
+                <h3 className={styles.coreTitle}>{area.title}</h3>
                 <p className={styles.coreSummary}>{area.summary}</p>
                 <ul className={styles.coreList}>
                   {area.items.map((item) => (
@@ -158,30 +138,56 @@ export default function WorkPage() {
           </div>
         </section>
 
-        <section className={styles.catalog} aria-labelledby="business-fields-title">
-          <article className={styles.board}>
-            <div className={styles.sectionHeader}>
-              <p className={styles.sectionEyebrow}>세부 사업 분야</p>
-              <h2 id="business-fields-title">사업 분야</h2>
-            </div>
-            <ul className={styles.boardList}>
-              {businessFields.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
+        {/* 사업 분야 / 보유 제품 */}
+        <section className={styles.catalogSection} aria-labelledby="business-fields-title">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Detailed Areas</p>
+            <h2 id="business-fields-title">세부 사업 분야 및 보유 제품</h2>
+          </div>
 
-          <article className={styles.board}>
-            <div className={styles.sectionHeader}>
-              <p className={styles.sectionEyebrow}>주요 제품</p>
-              <h2>개발 보유 제품</h2>
+          <div className={styles.catalogGrid}>
+            <article className={styles.catalogCard}>
+              <p className={styles.cardEyebrow}>Business Fields</p>
+              <h3>사업 분야</h3>
+              <ul className={styles.catalogList}>
+                {businessFields.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article className={styles.catalogCard}>
+              <p className={styles.cardEyebrow}>Our Products</p>
+              <h3>개발 보유 제품</h3>
+              <ul className={styles.catalogList}>
+                {products.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        {/* 통계 섹션 */}
+        <section className={styles.statsSection}>
+          <div className={styles.statsInner}>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>4</span>
+              <span className={styles.statLabel}>핵심 사업 영역</span>
             </div>
-            <ul className={styles.boardList}>
-              {products.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>10+</span>
+              <span className={styles.statLabel}>년 개발 경력</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>100+</span>
+              <span className={styles.statLabel}>완료 프로젝트</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statValue}>99%</span>
+              <span className={styles.statLabel}>고객 만족도</span>
+            </div>
+          </div>
         </section>
 
         {/* CTA 섹션 */}
