@@ -1,7 +1,14 @@
+// 2026-05-22 수정: CTA 섹션 추가, 메타데이터 추가
+import type { Metadata } from "next";
+import CTASection from "@/components/sections/CTASection";
 import sharedStyles from "../detail-page.module.css";
 import styles from "./page.module.css";
 
-// 2026-04-21 콘텐츠 한국어 톤 통일: 제목·눈썹·핵심 가치 제목·본문의 영문 표현을 한국어 세트로 정리함.
+export const metadata: Metadata = {
+  title: "회사 소개",
+  description:
+    "가스펠플러스(GSPLPLUS)는 2015년 창립 이래 10년 이상의 임베디드 전문 기업입니다. 기획과 협력, 개발과 구현, 성장 동반의 가치로 고객과 함께 성장합니다.",
+};
 
 const history = [
   {
@@ -173,6 +180,13 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+
+        {/* CTA 섹션 */}
+        <CTASection
+          title="함께 성장할 파트너를 찾고 계신가요?"
+          subtitle="10년 이상의 경험을 바탕으로 최적의 솔루션을 제안해 드립니다."
+          variant="gradient"
+        />
       </main>
     </div>
   );

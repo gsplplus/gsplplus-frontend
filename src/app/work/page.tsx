@@ -1,7 +1,14 @@
+// 2026-05-22 수정: CTA 섹션 추가, 메타데이터 추가
+import type { Metadata } from "next";
+import CTASection from "@/components/sections/CTASection";
 import sharedStyles from "../detail-page.module.css";
 import styles from "./page.module.css";
 
-// 2026-04-21 콘텐츠 한국어 톤 통일: 히어로·배지·섹션 눈썹 한국어화, 고유명사·약어는 유지. 핵심 사업 섹션에 aria-labelledby 대응 h2 추가.
+export const metadata: Metadata = {
+  title: "서비스",
+  description:
+    "가스펠플러스(GSPLPLUS)의 주요 서비스를 소개합니다. 임베디드 하드웨어, 소프트웨어, 시스템 통합, 자동차 전장 개발까지 원스톱 서비스를 제공합니다.",
+};
 
 const coreBusiness = [
   {
@@ -176,6 +183,13 @@ export default function WorkPage() {
             </ul>
           </article>
         </section>
+
+        {/* CTA 섹션 */}
+        <CTASection
+          title="맞춤형 솔루션이 필요하신가요?"
+          subtitle="프로젝트 요구사항에 맞는 최적의 기술 솔루션을 제안해 드립니다."
+          variant="gradient"
+        />
       </main>
     </div>
   );

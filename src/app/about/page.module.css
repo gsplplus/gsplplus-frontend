@@ -21,8 +21,8 @@
 }
 
 .storyHeader h1 {
-  font-size: clamp(34px, 5vw, 64px);
-  line-height: 1;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.1;
   letter-spacing: -0.04em;
   color: #ffffff;
 }
@@ -34,9 +34,9 @@
 }
 
 .storyLead {
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 1.75;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.8;
   color: #334155;
 }
 
@@ -96,9 +96,9 @@
 }
 
 .pillar h2 {
-  font-size: clamp(26px, 2.7vw, 38px);
-  line-height: 1.05;
-  letter-spacing: -0.05em;
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
 }
 
 .pillar p {
@@ -172,8 +172,8 @@
 }
 
 .historyHeader h2 {
-  font-size: clamp(34px, 4vw, 52px);
-  line-height: 1.02;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.1;
   letter-spacing: -0.05em;
   color: #102033;
 }
@@ -235,6 +235,13 @@
     linear-gradient(180deg, #fff8ef 0%, #ffffff 120px),
     #ffffff;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+  transform: scale(0.9);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timelineCard:hover {
+  transform: scale(1);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.1);
 }
 
 .timelineYear {

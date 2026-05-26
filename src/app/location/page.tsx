@@ -1,7 +1,14 @@
+// 2026-05-22 수정: CTA 섹션 추가, 메타데이터 추가
+import type { Metadata } from "next";
+import CTASection from "@/components/sections/CTASection";
 import sharedStyles from "../detail-page.module.css";
 import styles from "./page.module.css";
 
-// 2026-04-21 콘텐츠 한국어 톤 통일: 눈썹·카드 라벨·지도 제목·iframe 접근성 제목을 한국어로 정리함.
+export const metadata: Metadata = {
+  title: "오시는 길",
+  description:
+    "가스펠플러스(GSPLPLUS) 오시는 길 안내입니다. 대전광역시 유성구 배울1로 277, 4동에 위치해 있습니다.",
+};
 
 export default function LocationPage() {
   return (
@@ -70,6 +77,13 @@ export default function LocationPage() {
             </div>
           </div>
         </section>
+
+        {/* CTA 섹션 */}
+        <CTASection
+          title="방문 상담을 원하시나요?"
+          subtitle="미리 연락 주시면 더욱 원활한 상담이 가능합니다."
+          variant="gradient"
+        />
       </main>
     </div>
   );

@@ -1,0 +1,194 @@
+/* 2026-05-22 신규 생성: CTA 섹션 스타일 */
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 24px;
+}
+
+.gradient {
+  background: linear-gradient(135deg, #F57C00 0%, #FF5722 50%, #E64A19 100%);
+}
+
+.dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.default {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ctaInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.ctaContent {
+  flex: 1;
+}
+
+.ctaTitle {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.default .ctaTitle {
+  color: #102033;
+}
+
+.ctaSubtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.default .ctaSubtitle {
+  color: #64748b;
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: #ffffff;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #F57C00;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.default .primaryBtn {
+  background: linear-gradient(135deg, #F57C00 0%, #FF5722 100%);
+  color: #ffffff;
+}
+
+.btnArrow {
+  transition: transform 0.3s ease;
+}
+
+.primaryBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.default .secondaryBtn {
+  background: rgba(245, 124, 0, 0.1);
+  border-color: rgba(245, 124, 0, 0.3);
+  color: #F57C00;
+}
+
+.default .secondaryBtn:hover {
+  background: rgba(245, 124, 0, 0.15);
+}
+
+.phoneIcon {
+  font-size: 18px;
+}
+
+/* 배경 장식 */
+.bgDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bgCircle1 {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.bgCircle2 {
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .ctaInner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .cta {
+    padding: 60px 20px;
+  }
+
+  .ctaTitle {
+    font-size: 26px;
+  }
+
+  .ctaSubtitle {
+    font-size: 16px;
+  }
+}

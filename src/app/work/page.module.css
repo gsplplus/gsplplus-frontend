@@ -4,9 +4,13 @@
   max-width: 1120px;
   flex-direction: column;
   gap: 36px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: center;
 }
 
 .hero {
+  width: 100%;
   overflow: hidden;
   border: 1px solid #d7dfeb;
   border-radius: 28px;
@@ -213,6 +217,7 @@
 
 .core,
 .catalog {
+  width: 100%;
   display: grid;
   gap: 20px;
 }

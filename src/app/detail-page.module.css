@@ -1,20 +1,32 @@
+/* 2026-05-22 수정: padding 조정, CTA 섹션 대응 */
+/* 2026-05-22 수정: 가운데 정렬, 동적 애니메이션 추가 */
 .page {
   display: flex;
   flex: 1;
-  justify-content: center;
-  padding: 120px 24px 64px;
-  background:
-    linear-gradient(180deg, #f8fafc 0%, #ffffff 280px),
-    #ffffff;
+  flex-direction: column;
+  padding-top: 80px;
+  background: #f8fafc;
 }
 
 .main {
   display: flex;
   width: 100%;
-  max-width: 960px;
   flex-direction: column;
-  gap: 32px;
+  align-items: center;
 }
+
+.main > section:not(:last-child) {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.main > section:nth-child(1) { animation-delay: 0s; }
+.main > section:nth-child(2) { animation-delay: 0.15s; }
+.main > section:nth-child(3) { animation-delay: 0.3s; }
+.main > section:nth-child(4) { animation-delay: 0.45s; }
 
 .hero {
   display: flex;
@@ -25,6 +37,12 @@
   border-radius: 24px;
   background-color: #ffffff;
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.1);
 }
 
 .eyebrow {
@@ -85,6 +103,27 @@
   width: 100%;
   min-height: 420px;
   border: 0;
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content section {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
 }
 
 @media (max-width: 768px) {

@@ -4,6 +4,8 @@
   max-width: 1080px;
   flex-direction: column;
   gap: 36px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .hero {
@@ -16,7 +18,7 @@
 
 .heroHeader {
   padding: 28px 32px;
-  background: linear-gradient(135deg, #c97707 0%, #df920f 100%);
+  background: linear-gradient(135deg, #F57C00 0%, #FF9800 100%);
 }
 
 .eyebrow {
@@ -82,7 +84,7 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #c97707;
+  color: #F57C00;
 }
 
 .sectionHeader h2 {
@@ -117,7 +119,7 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #c97707;
+  color: #F57C00;
 }
 
 .infoCard h3,
